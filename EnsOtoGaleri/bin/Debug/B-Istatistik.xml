@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="tr-TR">
+  <Title Text="Dashboard" />
+  <DataSources>
+    <SqlDataSource ComponentName="dashboardSqlDataSource1">
+      <Name>SQL Data Source 1</Name>
+      <Connection Name="localhost_OtoGaleriDB_Connection" ProviderKey="MSSqlServer">
+        <Parameters>
+          <Parameter Name="server" Value="localhost" />
+          <Parameter Name="database" Value="OtoGaleriDB" />
+          <Parameter Name="useIntegratedSecurity" Value="True" />
+          <Parameter Name="read only" Value="1" />
+          <Parameter Name="generateConnectionHelper" Value="false" />
+        </Parameters>
+      </Connection>
+      <Query Type="SelectQuery" Name="Arabalar">
+        <Tables>
+          <Table Name="Arabalar" X="30" Y="30" Width="125" Height="323" />
+        </Tables>
+        <Columns>
+          <Column Table="Arabalar" Name="ArabaID" />
+          <Column Table="Arabalar" Name="SubeID" />
+          <Column Table="Arabalar" Name="Marka" />
+          <Column Table="Arabalar" Name="Model" />
+          <Column Table="Arabalar" Name="Yil" />
+          <Column Table="Arabalar" Name="Yakit" />
+          <Column Table="Arabalar" Name="Vites" />
+          <Column Table="Arabalar" Name="MotorGucu" />
+          <Column Table="Arabalar" Name="MotorHacmi" />
+        </Columns>
+      </Query>
+      <ResultSchema>
+        <DataSet Name="SQL Data Source 1">
+          <View Name="Arabalar">
+            <Field Name="ArabaID" Type="Int32" />
+            <Field Name="SubeID" Type="Int32" />
+            <Field Name="Marka" Type="String" />
+            <Field Name="Model" Type="String" />
+            <Field Name="Yil" Type="Int32" />
+            <Field Name="Yakit" Type="String" />
+            <Field Name="Vites" Type="String" />
+            <Field Name="MotorGucu" Type="Int32" />
+            <Field Name="MotorHacmi" Type="Int32" />
+          </View>
+        </DataSet>
+      </ResultSchema>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <Chart ComponentName="chartDashboardItem1" Name="Chart 1" DataSource="dashboardSqlDataSource1" DataMember="Arabalar">
+      <DataItems>
+        <Measure DataMember="Marka" SummaryType="Count" DefaultId="DataItem0" />
+        <Dimension DataMember="Marka" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Panes>
+        <Pane Name="Pane 1">
+          <Series>
+            <Simple>
+              <Value DefaultId="DataItem0" />
+            </Simple>
+          </Series>
+        </Pane>
+      </Panes>
+    </Chart>
+    <Pie ComponentName="pieDashboardItem1" Name="Pies 1" DataSource="dashboardSqlDataSource1" DataMember="Arabalar">
+      <DataItems>
+        <Measure DataMember="Marka" SummaryType="Count" DefaultId="DataItem0" />
+        <Dimension DataMember="Marka" DefaultId="DataItem1" />
+      </DataItems>
+      <Arguments>
+        <Argument DefaultId="DataItem1" />
+      </Arguments>
+      <Values>
+        <Value DefaultId="DataItem0" />
+      </Values>
+    </Pie>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutItem DashboardItem="chartDashboardItem1" Weight="0.5" />
+      <LayoutItem DashboardItem="pieDashboardItem1" Weight="0.5" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

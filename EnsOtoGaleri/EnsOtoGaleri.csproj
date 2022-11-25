@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BE418975-A1C3-4DBA-8644-39A4AF36B812}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EnsOtoGaleri</RootNamespace>
+    <AssemblyName>EnsOtoGaleri</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v18.1" />
+    <Reference Include="DevExpress.Charts.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v18.1.Win, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v18.1" />
+    <Reference Include="DevExpress.DataAccess.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v18.1.UI, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Map.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Pdf.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v18.1.Core" />
+    <Reference Include="DevExpress.RichEdit.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v18.1.Export, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.TreeMap.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v18.1" />
+    <Reference Include="DevExpress.Utils.v18.1.UI, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v18.1" />
+    <Reference Include="DevExpress.Sparkline.v18.1.Core" />
+    <Reference Include="DevExpress.XtraCharts.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v18.1.UI, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v18.1.Wizard, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v18.1" />
+    <Reference Include="DevExpress.XtraGauges.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v18.1.Presets, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v18.1.Win, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraLayout.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraMap.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPivotGrid.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v18.1.Extensions, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v18.1.Core, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeMap.v18.1, Version=18.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.Core, Version=2.0.1.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.Core.2.0.1\lib\net40\GMap.NET.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsForms, Version=2.0.1.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WinForms.2.0.1\lib\net40\GMap.NET.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="GMap.NET.WindowsPresentation, Version=2.0.1.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL">
+      <HintPath>..\packages\GMap.NET.WinPresentation.2.0.1\lib\net40\GMap.NET.WindowsPresentation.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\lib\net451\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.113.0\lib\net451\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.113.0\lib\net451\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ArabaKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArabaKayit.Designer.cs">
+      <DependentUpon>ArabaKayit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Arabalar.cs">
+      <DependentUpon>OtoGaleriDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ArabaSatis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArabaSatis.Designer.cs">
+      <DependentUpon>ArabaSatis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ArabaSigorta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArabaSigorta.Designer.cs">
+      <DependentUpon>ArabaSigorta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GirisForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GirisForm.Designer.cs">
+      <DependentUpon>GirisForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Hakkimizda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hakkimizda.Designer.cs">
+      <DependentUpon>Hakkimizda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Harita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Harita.Designer.cs">
+      <DependentUpon>Harita.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listele2_Result.cs">
+      <DependentUpon>OtoGaleriDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Listele_Result.cs">
+      <DependentUpon>OtoGaleriDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MasterAdmin.cs">
+      <DependentUpon>OtoGaleriDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MasterAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterAdminForm.Designer.cs">
+      <DependentUpon>MasterAdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterAdminler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterAdminler.Designer.cs">
+      <DependentUpon>MasterAdminler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterIstatistik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MasterIstatistik.Designer.cs">
+      <DependentUpon>MasterIstatistik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterLog.cs">
+      <DependentUpon>OtoGaleriDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MasterLogReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MasterLogReport.Designer.cs">
+      <DependentUpon>MasterLogReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MasterReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MasterReport.Designer.cs">
+      <DependentUpon>MasterReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OtoGaleriDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtoGaleriDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OtoGaleriDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtoGaleriDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OtoGaleriDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OtoGaleriDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Satislar.cs">
+      <DependentUpon>OtoGaleriDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sigortalar.cs">
+      <DependentUpon>OtoGaleriDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SigortaTarih.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SigortaTarih.Designer.cs">
+      <DependentUpon>SigortaTarih.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>OtoGaleriDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>OtoGaleriDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubeAbonelik.cs">
+      <DependentUpon>OtoGaleriDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubeAbonelikleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubeAbonelikleri.Designer.cs">
+      <DependentUpon>SubeAbonelikleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubeAdmin.cs">
+      <DependentUpon>OtoGaleriDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubeAdminForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubeAdminForm.Designer.cs">
+      <DependentUpon>SubeAdminForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubeAdminleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubeAdminleri.Designer.cs">
+      <DependentUpon>SubeAdminleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubeIstatistik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubeIstatistik.Designer.cs">
+      <DependentUpon>SubeIstatistik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubeLog.cs">
+      <DependentUpon>OtoGaleriDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SubeLogReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SubeLogReport.Designer.cs">
+      <DependentUpon>SubeLogReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubeReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SubeReport.Designer.cs">
+      <DependentUpon>SubeReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>OtoGaleriDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TumSubelerHarita.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TumSubelerHarita.Designer.cs">
+      <DependentUpon>TumSubelerHarita.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ArabaKayit.resx">
+      <DependentUpon>ArabaKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ArabaSatis.resx">
+      <DependentUpon>ArabaSatis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ArabaSigorta.resx">
+      <DependentUpon>ArabaSigorta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GirisForm.resx">
+      <DependentUpon>GirisForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hakkimizda.resx">
+      <DependentUpon>Hakkimizda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Harita.resx">
+      <DependentUpon>Harita.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterAdminForm.resx">
+      <DependentUpon>MasterAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterAdminler.resx">
+      <DependentUpon>MasterAdminler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterIstatistik.resx">
+      <DependentUpon>MasterIstatistik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterLogReport.resx">
+      <DependentUpon>MasterLogReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MasterReport.resx">
+      <DependentUpon>MasterReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="SigortaTarih.resx">
+      <DependentUpon>SigortaTarih.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubeAbonelikleri.resx">
+      <DependentUpon>SubeAbonelikleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubeAdminForm.resx">
+      <DependentUpon>SubeAdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubeAdminleri.resx">
+      <DependentUpon>SubeAdminleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubeIstatistik.resx">
+      <DependentUpon>SubeIstatistik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubeLogReport.resx">
+      <DependentUpon>SubeLogReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubeReport.resx">
+      <DependentUpon>SubeReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TumSubelerHarita.resx">
+      <DependentUpon>TumSubelerHarita.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <EntityDeploy Include="OtoGaleriDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>OtoGaleriDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="OtoGaleriDB.edmx.diagram">
+      <DependentUpon>OtoGaleriDB.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="OtoGaleriDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OtoGaleriDB.edmx</DependentUpon>
+      <LastGenOutput>OtoGaleriDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="OtoGaleriDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>OtoGaleriDB.edmx</DependentUpon>
+      <LastGenOutput>OtoGaleriDB.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
+  <Import Project="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets" Condition="Exists('..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

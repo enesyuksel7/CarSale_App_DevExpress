@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OtoGaleriDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Arabalar">
+    <Key>
+      <PropertyRef Name="ArabaID" />
+    </Key>
+    <Property Name="ArabaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubeID" Type="Int32" />
+    <Property Name="Marka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Yil" Type="Int32" />
+    <Property Name="Yakit" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Vites" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MotorGucu" Type="Int32" />
+    <Property Name="MotorHacmi" Type="Int32" />
+    <NavigationProperty Name="SubeAbonelik" Relationship="Self.FK_Arabalar_SubeAbonelik" FromRole="Arabalar" ToRole="SubeAbonelik" />
+    <NavigationProperty Name="Satislar" Relationship="Self.FK_Satislar_Arabalar" FromRole="Arabalar" ToRole="Satislar" />
+  </EntityType>
+  <EntityType Name="MasterAdmin">
+    <Key>
+      <PropertyRef Name="MasterID" />
+    </Key>
+    <Property Name="MasterID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="MasterLog">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Tarih" Type="DateTime" Precision="3" />
+    <Property Name="Islem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Satislar">
+    <Key>
+      <PropertyRef Name="SatisID" />
+    </Key>
+    <Property Name="SatisID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ArabaID" Type="Int32" Nullable="false" />
+    <Property Name="Marka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Ucret" Type="Int32" />
+    <Property Name="Tarih" Type="DateTime" Precision="0" />
+    <Property Name="TelNo" Type="Int32" />
+    <NavigationProperty Name="Arabalar" Relationship="Self.FK_Satislar_Arabalar" FromRole="Satislar" ToRole="Arabalar" />
+    <NavigationProperty Name="Sigortalar" Relationship="Self.FK_Sigortalar_Satislar" FromRole="Satislar" ToRole="Sigortalar" />
+    <Property Name="SubeID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SubeAbonelik" Relationship="OtoGaleriDBModel.FK_Satislar_SubeAbonelik" FromRole="Satislar" ToRole="SubeAbonelik" />
+  </EntityType>
+  <EntityType Name="Sigortalar">
+    <Key>
+      <PropertyRef Name="SigortaID" />
+    </Key>
+    <Property Name="SigortaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SatisID" Type="Int32" Nullable="false" />
+    <Property Name="Marka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BaslangicT" Type="DateTime" Precision="3" />
+    <Property Name="BitisT" Type="DateTime" Precision="3" />
+    <Property Name="Ucret" Type="Int32" />
+    <NavigationProperty Name="Satislar" Relationship="Self.FK_Sigortalar_Satislar" FromRole="Sigortalar" ToRole="Satislar" />
+    <Property Name="SubeID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SubeAbonelik" Relationship="OtoGaleriDBModel.FK_Sigortalar_SubeAbonelik" FromRole="Sigortalar" ToRole="SubeAbonelik" />
+  </EntityType>
+  <EntityType Name="SubeAbonelik">
+    <Key>
+      <PropertyRef Name="SubeID" />
+    </Key>
+    <Property Name="SubeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubeAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SehirAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SemtAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Arabalar" Relationship="Self.FK_Arabalar_SubeAbonelik" FromRole="SubeAbonelik" ToRole="Arabalar" />
+    <NavigationProperty Name="SubeAdmin" Relationship="Self.FK_SubeAdmin_SubeAbonelik" FromRole="SubeAbonelik" ToRole="SubeAdmin" />
+    <NavigationProperty Name="Satislar" Relationship="OtoGaleriDBModel.FK_Satislar_SubeAbonelik" FromRole="SubeAbonelik" ToRole="Satislar" />
+    <NavigationProperty Name="Sigortalar" Relationship="OtoGaleriDBModel.FK_Sigortalar_SubeAbonelik" FromRole="SubeAbonelik" ToRole="Sigortalar" />
+  </EntityType>
+  <EntityType Name="SubeAdmin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubeID" Type="Int32" Nullable="false" />
+    <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SubeAbonelik" Relationship="Self.FK_SubeAdmin_SubeAbonelik" FromRole="SubeAdmin" ToRole="SubeAbonelik" />
+  </EntityType>
+  <EntityType Name="SubeLog">
+    <Key>
+      <PropertyRef Name="LogID" />
+    </Key>
+    <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Tarih" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Islem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Arabalar_SubeAbonelik">
+    <End Role="SubeAbonelik" Type="Self.SubeAbonelik" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Arabalar" Type="Self.Arabalar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubeAbonelik">
+        <PropertyRef Name="SubeID" />
+      </Principal>
+      <Dependent Role="Arabalar">
+        <PropertyRef Name="SubeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Satislar_Arabalar">
+    <End Role="Arabalar" Type="Self.Arabalar" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Satislar" Type="Self.Satislar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Arabalar">
+        <PropertyRef Name="ArabaID" />
+      </Principal>
+      <Dependent Role="Satislar">
+        <PropertyRef Name="ArabaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sigortalar_Satislar">
+    <End Role="Satislar" Type="Self.Satislar" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Sigortalar" Type="Self.Sigortalar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Satislar">
+        <PropertyRef Name="SatisID" />
+      </Principal>
+      <Dependent Role="Sigortalar">
+        <PropertyRef Name="SatisID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubeAdmin_SubeAbonelik">
+    <End Role="SubeAbonelik" Type="Self.SubeAbonelik" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SubeAdmin" Type="Self.SubeAdmin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubeAbonelik">
+        <PropertyRef Name="SubeID" />
+      </Principal>
+      <Dependent Role="SubeAdmin">
+        <PropertyRef Name="SubeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OtoGaleriDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Arabalar" EntityType="Self.Arabalar" />
+    <EntitySet Name="MasterAdmin" EntityType="Self.MasterAdmin" />
+    <EntitySet Name="MasterLog" EntityType="Self.MasterLog" />
+    <EntitySet Name="Satislar" EntityType="Self.Satislar" />
+    <EntitySet Name="Sigortalar" EntityType="Self.Sigortalar" />
+    <EntitySet Name="SubeAbonelik" EntityType="Self.SubeAbonelik" />
+    <EntitySet Name="SubeAdmin" EntityType="Self.SubeAdmin" />
+    <EntitySet Name="SubeLog" EntityType="Self.SubeLog" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_Arabalar_SubeAbonelik" Association="Self.FK_Arabalar_SubeAbonelik">
+      <End Role="SubeAbonelik" EntitySet="SubeAbonelik" />
+      <End Role="Arabalar" EntitySet="Arabalar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Satislar_Arabalar" Association="Self.FK_Satislar_Arabalar">
+      <End Role="Arabalar" EntitySet="Arabalar" />
+      <End Role="Satislar" EntitySet="Satislar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sigortalar_Satislar" Association="Self.FK_Sigortalar_Satislar">
+      <End Role="Satislar" EntitySet="Satislar" />
+      <End Role="Sigortalar" EntitySet="Sigortalar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubeAdmin_SubeAbonelik" Association="Self.FK_SubeAdmin_SubeAbonelik">
+      <End Role="SubeAbonelik" EntitySet="SubeAbonelik" />
+      <End Role="SubeAdmin" EntitySet="SubeAdmin" />
+    </AssociationSet>
+    <FunctionImport Name="Ekle">
+      <Parameter Name="KullaniciAdi" Mode="In" Type="String" />
+      <Parameter Name="Tarih" Mode="In" Type="DateTime" />
+      <Parameter Name="Islem" Mode="In" Type="String" />
+      <Parameter Name="Aciklama" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Guncelle">
+      <Parameter Name="LogID" Mode="In" Type="Int32" />
+      <Parameter Name="KullaniciAdi" Mode="In" Type="String" />
+      <Parameter Name="Tarih" Mode="In" Type="DateTime" />
+      <Parameter Name="Islem" Mode="In" Type="String" />
+      <Parameter Name="Aciklama" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Listele" ReturnType="Collection(OtoGaleriDBModel.Listele_Result)" />
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(OtoGaleriDBModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(OtoGaleriDBModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="Ekle2">
+      <Parameter Name="KullaniciAdi" Mode="In" Type="String" />
+      <Parameter Name="Tarih" Mode="In" Type="DateTime" />
+      <Parameter Name="Islem" Mode="In" Type="String" />
+      <Parameter Name="Aciklama" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Guncelle2">
+      <Parameter Name="LogID" Mode="In" Type="Int32" />
+      <Parameter Name="KullaniciAdi" Mode="In" Type="String" />
+      <Parameter Name="Tarih" Mode="In" Type="DateTime" />
+      <Parameter Name="Islem" Mode="In" Type="String" />
+      <Parameter Name="Aciklama" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Listele2" ReturnType="Collection(OtoGaleriDBModel.Listele2_Result)" />
+    <AssociationSet Name="FK_Satislar_SubeAbonelik" Association="OtoGaleriDBModel.FK_Satislar_SubeAbonelik">
+      <End Role="SubeAbonelik" EntitySet="SubeAbonelik" />
+      <End Role="Satislar" EntitySet="Satislar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sigortalar_SubeAbonelik" Association="OtoGaleriDBModel.FK_Sigortalar_SubeAbonelik">
+      <End Role="SubeAbonelik" EntitySet="SubeAbonelik" />
+      <End Role="Sigortalar" EntitySet="Sigortalar" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="Listele_Result">
+    <Property Type="Int32" Name="LogID" Nullable="false" />
+    <Property Type="String" Name="KullaniciAdi" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Tarih" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Islem" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Aciklama" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Listele2_Result">
+    <Property Type="Int32" Name="LogID" Nullable="false" />
+    <Property Type="String" Name="KullaniciAdi" Nullable="false" MaxLength="50" />
+    <Property Type="DateTime" Name="Tarih" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Islem" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Aciklama" Nullable="false" />
+  </ComplexType>
+  <Association Name="FK_Satislar_SubeAbonelik">
+    <End Type="OtoGaleriDBModel.SubeAbonelik" Role="SubeAbonelik" Multiplicity="1" />
+    <End Type="OtoGaleriDBModel.Satislar" Role="Satislar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubeAbonelik">
+        <PropertyRef Name="SubeID" />
+      </Principal>
+      <Dependent Role="Satislar">
+        <PropertyRef Name="SubeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sigortalar_SubeAbonelik">
+    <End Type="OtoGaleriDBModel.SubeAbonelik" Role="SubeAbonelik" Multiplicity="1" />
+    <End Type="OtoGaleriDBModel.Sigortalar" Role="Sigortalar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubeAbonelik">
+        <PropertyRef Name="SubeID" />
+      </Principal>
+      <Dependent Role="Sigortalar">
+        <PropertyRef Name="SubeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
